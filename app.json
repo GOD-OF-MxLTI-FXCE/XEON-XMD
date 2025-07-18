@@ -1,115 +1,148 @@
 {
   "name": "XEON-XTECH",
-  "description": "A javascript bot developed by Black-Tappy",
+  "description": "✨🏷️ Javascript Bot WhatsApp Multi-Bot | XEON-XTECH | Auto Mods + AI + Fun Tools + Media",
+  "logo": "https://files.catbox.moe/2p885c.jpg",
   "keywords": [
-    "whatsapp bot"
+    "whatsapp",
+    "bot",
+    "blacktappy",
+    "multi-tool",
+    "AI",
+    "auto-mod",
+    "baileys",
+    "downloader",
+    "heroku"
   ],
-  "logo":"https://files.catbox.moe/yd9bnm.jpg",
-  "repository": "https://github.com/Black-Tappy/XEON-XMD",
-  "stack": "container",
-  "env": { 
-      "SESSION_ID": {
-      "description": "your session id",
+  "repository": "https://github.com/BlackTappy/XEON-XMD",
+  "stack": "heroku-24",
+  "env": {
+    "SESSION_ID": {
+      "description": "Session ID (XEON-XTECH~fileId#fileKey format for MEGA based auth)",
+      "required": true
+    },
+    "OWNER": {
+      "description": "Owner's name or username tag",
       "required": true,
-      "value": ""
+      "value": "Black-Tappy"
+    },
+    "OWNER_NUMBER": {
+      "description": "Main owner number (e.g. +254759000340)",
+      "required": true
     },
     "MODE": {
-      "description": "mode public or private",
+      "description": "Bot mode: 'public', 'private', or 'self'",
       "required": true,
       "value": "public"
     },
-    "AUTO_STATUS_SEEN": {
-      "description": "make it true if you want bot to view status",
-      "required": false,
-      "value": "true"
-        },
-    "AUTO_STATUS_REACT": {
-      "description": "Make it true if you want bot to read and like status else leave blank",
-      "required": false,
-      "value": "true"
-    },
-    "CHAT_BOT": {
-      "description": "Make it true if you want to enable chatbot",
+    "ALWAYS_ONLINE": {
+      "description": "Bot shows always online: 'true' or 'false'",
       "required": false,
       "value": "false"
-    },
-    "ANTI_DELETE": {
-      "description": "make it true if you wanna enable antidelete mode",
-      "required": false,
-      "value": "true"
-      },
-    "AUTOLIKE_EMOJI": {
-      "description": "Input your custom status like emoji else leave blank to use default => 🩷",
-      "required": false,
-      "value": "🩷"
-      },
-    "AUTO_REACT": {
-      "description": "make it true if you want a bot to react on messages",
-      "required": false,
-      "value": "false"
-    },
-    "AUTO_REPLY_STATUS": {
-      "description": "make it true if you want the bot to send message after viewing status else leave blank",
-      "required": false,
-      "value": "false"
-    },
-    "SUDO_NUMBER": {
-      "description": "Put Sudo Numbers separated by comma Here. Sudos are limited to owner commands else leave blank",
-      "required": false,
-      "value": "254759000340"
     },
     "AUTO_READ": {
-      "description": "make it true if you want bot to read message",
+      "description": "Auto-read chats: 'true' or 'false'",
       "required": false,
       "value": "false"
     },
     "AUTO_TYPING": {
-      "description": "make it true if you want bot to show typing",
+      "description": "Simulate typing while replying: 'true' or 'false'",
       "required": false,
       "value": "false"
     },
     "AUTO_RECORDING": {
-      "description": "make it true if you want bot to show recording audio",
+      "description": "Simulate voice note recording: 'true' or 'false'",
       "required": false,
       "value": "false"
     },
-    "ALWAYS_ONLINE": {
-      "description": "make it true if you want bot to show always online",
-      "required": false,
-      "value": "false"
-      },
-    "AUTO_BIO": {
-      "description": "make it true if you want the bot to update de bio after restart",
+    "AUTO_STATUS_SEEN": {
+      "description": "View contacts' status automatically: 'true' or 'false'",
       "required": false,
       "value": "true"
     },
-    "AUTO_BLOCK": {
-      "description": "make it true if you want bot to auto block only 212 numbers",
-      "required": false,
-      "value": "false"
-    },
     "REJECT_CALL": {
-      "description": "make it true if you want to reject call",
+      "description": "Auto-reject incoming calls: 'true' or 'false'",
       "required": false,
       "value": "false"
-     },
-    "WELCOME": {
-      "description": "make it true if you want to enable auto welcome",
-      "required": false,
-      "value": "false" 
-      },
-    "ANTILINK": {
-      "description": "make it true if you want to enable auto delete links",
-      "required": false,
-      "value": "false"  
     },
-    "PREFIX": {
-      "description": "Your Bot Prefix default (.)",
+    "AUTO_BLOCK": {
+      "description": "Block spam numbers like +212: 'true' or 'false'",
       "required": false,
-      "value": "."
+      "value": "true"
+    },
+    "ANTILINK_MODE": {
+      "description": "Antilink mode: 'off', 'warn', 'kick', 'delete'",
+      "required": false,
+      "value": "warn"
+    },
+    "LOG_CHAT": {
+      "description": "Log all chats in console: 'true' or 'false'",
+      "required": false,
+      "value": "false"
+    },
+    "LOG_GROUP_EVENTS": {
+      "description": "Log join/leave/mute/group updates in console: 'true' or 'false'",
+      "required": false,
+      "value": "true"
+    },
+    "CHATBOT": {
+      "description": "Enable chatbot replies using AI: 'true' or 'false'",
+      "required": false,
+      "value": "true"
+    },
+    "AI_API_KEY": {
+      "description": "Optional API key for OpenAI or external chatbot service",
+      "required": false
+    },
+    "FORCE_LOGO": {
+      "description": "Show AI signature logo or footer in every reply: 'true' or 'false'",
+      "required": false,
+      "value": "true"
+    },
+    "FOOTER_TEXT": {
+      "description": "Custom text to show at bottom of every reply (e.g., AI Generated by XEON-XTECH)",
+      "required": false,
+      "value": "🤖 AI Response · XEON-XTECH"
+    },
+    "STICKER_PACKNAME": {
+      "description": "Sticker watermark pack name",
+      "required": false,
+      "value": "XEON-XTECH"
+    },
+    "STICKER_AUTHOR": {
+      "description": "Sticker watermark author",
+      "required": false,
+      "value": "XEON-XTECH"
+    },
+    "SUDO": {
+      "description": "Comma-separated list of other admins (e.g., +2547...,+91...etc)",
+      "required": false
+    },
+    "DATABASE_URL": {
+      "description": "MongoDB or JSON-based DB URI for persistent config/storage",
+      "required": false
+    },
+    "WORKTYPE": {
+      "description": "Control response system: 'command' or 'contextual'",
+      "required": false,
+      "value": "command"
+    },
+    "AUTO_RESTART": {
+      "description": "Restart bot periodically (every 6hrs): 'true' or 'false'",
+      "required": false,
+      "value": "false"
+    },
+    "TZ": {
+      "description": "Timezone (e.g. Africa/Nairobi, Asia/Kolkata)",
+      "required": false,
+      "value": "Africa/Nairobi"
+    },
+    "BOT_NAME": {
+      "description": "Customize bot's display name",
+      "required": false,
+      "value": "XEON-XTECH"
     }
-    },
-    "buildpacks": [
+  },
+  "buildpacks": [
     {
       "url": "heroku/nodejs"
     },
