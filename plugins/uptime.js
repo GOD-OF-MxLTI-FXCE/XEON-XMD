@@ -1,31 +1,63 @@
-import pkg, { prepareWAMessageMedia } from '@whiskeysockets/baileys';
-const { generateWAMessageFromContent, proto } = pkg;
+import moment from "moment-timezone";
+import config from "../../config.cjs";
 
-const alive = async (m, Matrix) => {
-  const uptimeSeconds = process.uptime();
-  const days = Math.floor(uptimeSeconds / (24 * 3600));
-  const hours = Math.floor((uptimeSeconds % (24 * 3600)) / 3600);
-  const minutes = Math.floor((uptimeSeconds % 3600) / 60);
-  const seconds = Math.floor(uptimeSeconds % 60);
+const uptime = async (m, sock) => {
+  try {
+    const prefix = config.PREFIX || ".";
+    const body = m.body || "";
+    const cmd = body.startsWith(prefix) ? body.slice(prefix.length).trim().split(" ")[0].toLowerCase() : "";
 
-  const prefix = /^[\\/!#.]/gi.test(m.body) ? m.body.match(/^[\\/!#.]/gi)[0] : '/';
-  const cmd = m.body.trim().toLowerCase().startsWith(prefix)
-    ? m.body.trim().slice(prefix.length).toLowerCase()
-    : '';
+    // Only respond to the exact command
+    if (cmd !== "uptime") return;
 
-  if (['alive', 'uptime', 'runtime'].includes(cmd)) {
-    const shortReply = `
-*───〔 🤖 BOT STATUS 🤖 〕───*
-*✅ Status:* *Online & Active*
-*⏱️ Uptime:* *${days}d* ${hours}h ${minutes}m ${seconds}s
-*🛠️ Engine:* *Xeon-Xtech*
+    await m.React("⏳");
 
-  *⏺️xeon xtech uptime⏺️*
-*──────────────────────────*
-    `.trim();
+    // Calculate uptime
+    const uptimeSec = process.uptime();
+    const days = Math.floor(uptimeSec / 86400);
+    const hours = Math.floor((uptimeSec % 86400) / 3600);
+    const minutes = Math.floor((uptimeSec % 3600) / 60);
+    const seconds = Math.floor(uptimeSec % 60);
 
-    m.reply(shortReply);
+    // Get current time in Nairobi timezone
+    const currentTime = moment().tz("Africa/Nairobi").format("HH:mm:ss");
+    let greeting = "Hello 👋";
+    if (currentTime < "05:00:00") greeting = "Good Morning 🌄";
+    else if (currentTime < "11:00:00") greeting = "Good Morning 🌄";
+    else if (currentTime < "15:00:00") greeting = "Good Afternoon 🌅";
+    else if (currentTime < "19:00:00") greeting = "Good Evening 🌆";
+    else greeting = "Good Night 🌌";
+
+    await m.React("⚡");
+
+    await sock.sendMessage(m.from, {
+      audio: { url: "https://files.catbox.moe/ucmkut.mp3" },
+      mimetype: "audio/mp4",
+      ptt: true,
+      contextInfo: {
+        mentionedJid: [m.sender],
+        forwardingScore: 999,
+        isForwarded: true,
+        forwardedNewsletterMessageInfo: {
+          newsletterJid: "120363369453603973@newsletter",
+          newsletterName: "ꊼεɸƞ-ꊼԵεϲཏ",
+          serverMessageId: 143
+        },
+        externalAdReply: {
+          title: "🌐 Xeon Xtech Uptime - Status 🌐",
+          body: `${greeting} | UPTIME: ${days}D ${hours}H ${minutes}M ${seconds}S`,
+          thumbnailUrl: "https://files.catbox.moe/8k0enh.jpg",
+          sourceUrl: "https://whatsapp.com/channel/0029VasHgfG4tRrwjAUyTs10",
+          mediaType: 1,
+          renderLargerThumbnail: true,
+        },
+      },
+    }, { quoted: m });
+
+  } catch (err) {
+    console.error("Uptime command error:", err);
+    await m.reply("❌ Error while fetching uptime.");
   }
 };
 
-export default alive;
+export default uptime;

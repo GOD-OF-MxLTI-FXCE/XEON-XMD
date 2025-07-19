@@ -8,7 +8,8 @@ const repo = async (m, sock) => {
   if (cmd === "repo") {
     await m.React('🖇️'); // A gem for a precious repo!
     const repoUrl = 'https://github.com/Black-Tappy/XEON-XMD';
-    const imageUrl = 'https://files.catbox.moe/og4tsk.jpg'; // ❗ REPLACE WITH YOUR ACTUAL IMAGE URL
+    // The imageUrl used for the main message content.
+    const imageUrl = 'https://files.catbox.moe/og4tsk.jpg';
 
     try {
       const apiUrl = `https://api.github.com/repos/Black-Tappy/XEON-XMD`;
@@ -16,6 +17,7 @@ const repo = async (m, sock) => {
       const data = await response.json();
 
       if (data && data.forks_count !== undefined && data.stargazers_count !== undefined) {
+        // The message content to be sent.
         const stylishMessage = {
           image: { url: imageUrl },
           caption: `
@@ -38,7 +40,30 @@ const repo = async (m, sock) => {
 `.trim(),
         };
 
-        sock.sendMessage(m.from, stylishMessage, { quoted: m });
+        // Define the WhatsApp Channel link.
+        const whatsappChannelLink = 'https://www.whatsapp.com/channel/0029VasHgfG4tRrwjAUyTs10';
+        const externalAdReply = {
+          title: "ꊼεɸƞ-ꊼԵεϲཏ ႪɸԵ", 
+          body: "Powered By Black-Tappy", 
+          thumbnailUrl: 'https://files.catbox.moe/6g5aq0.jpg', 
+          sourceUrl: whatsappChannelLink, 
+          mediaType: 1, 
+          renderLargerThumbnail: false, 
+        };
+
+        // Send the message with the stylishMessage content and the externalAdReply option.
+        sock.sendMessage(m.from, stylishMessage, {
+            quoted: m,
+            externalAdReply: externalAdReply,
+            mentionedJid: [m.sender],
+            forwardingScore: 999,
+            isForwarded: true,
+            forwardedNewsletterMessageInfo: {
+                newsletterJid: '120363369453603973@newsletter',
+                newsletterName: "ꊼεɸƞ-ꊼԵεϲཏ",
+                serverMessageId: 143
+            }
+        });
       } else {
         sock.sendMessage(m.from, { text: '⚠️ Could not retrieve full repo details. Please try again later. 🥺', quoted: m });
       }
