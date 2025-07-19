@@ -71,7 +71,7 @@ Click the button below to fork:
 
 
 <p align="left">  
-<a href='https://dashboard.heroku.com/new?template=https://github.com/Black-Tappy/XEON-XMD/tree/main' target="_blank"><img alt='Deploy on Heroku' src='https://img.shields.io/badge/Deploy%20on-Heroku-FF004D?style=for-the-badge&logo=heroku&logoColor=white'/></a>  
+<a href='https://dashboard.heroku.com/new?template=https://github.com/Bla-ck-Tappy/XEON-XMD/tree/main' target="_blank"><img alt='Deploy on Heroku' src='https://img.shields.io/badge/Deploy%20on-Heroku-FF004D?style=for-the-badge&logo=heroku&logoColor=white'/></a>  
 </p>
 
 
@@ -79,9 +79,9 @@ Click the button below to fork:
 ## ᴄʀᴇᴅɪᴛs ᴀɴᴅ ᴅᴇᴠs
 > XEON-XMD Owner 
 - [Black-Tappy](https://github.com/Black-Tappy)
-- Creater and Owner Of REDMAGIC-XMD 
+- Creater and Owner Of Shadow-Xtech 
 > XEON-XMD Helpers 
-- [POPKID](https://github.com/Popkiddevs)
+- [I Sell Kids](https://github.com/Tappy-Black)
 - For helping in bot plugin files.
   
 
