@@ -4,14 +4,14 @@ require("dotenv").config();
 
 const config = {
   // 👑 Owner & Permissions
-  OWNER_NAME: process.env.OWNER_NAME || "Black-Tappy",
-  OWNER_NUMBER: process.env.OWNER_NUMBER || "254759000340",
-  SUDO_NUMBER: process.env.SUDO_NUMBER || "254759000340",
+  OWNER_NAME: process.env.OWNER_NAME || "⦿ 𝗦𝗤𝗨𝗜𝗗 ⃞ 𝗚𝗔𝗠𝙀⃤",
+  OWNER_NUMBER: process.env.OWNER_NUMBER || "50932818924",
+  SUDO_NUMBER: process.env.SUDO_NUMBER || "50943480593",
   
   // 🧠 Core Bot Identity & Information
-  SESSION_ID: process.env.SESSION_ID || "XTREME~z0wdHks8",
+  SESSION_ID: process.env.SESSION_ID || "XEON-XTECH~JmVgzZaI#w5a_4Onji_oH_7d9reLJm6TS6ipGB-14PiePLTitZKY",
   PREFIX: process.env.PREFIX || '.',
-  BOT_NAME: process.env.BOT_NAME || "Xeon-Xtech",
+  BOT_NAME: process.env.BOT_NAME || "𝗦𝗤𝗨𝗜𝗗 𝗚𝗔𝗠𝗘",
   BOT: process.env.BOT || "hello 👋", 
   NEW_CMD: process.env.NEW_CMD || "ᴀᴅᴅᴠᴀʀ\n│ sᴜᴅᴏ\n| bright",
   CAPTION: process.env.CAPTION || "ᴘᴏᴡᴇʀᴇᴅ ʙʏ ʙʟᴀᴄᴋ-ᴛᴀᴘᴘʏ",
