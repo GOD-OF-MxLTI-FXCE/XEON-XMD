@@ -10,7 +10,7 @@ const config = {
   
   // 🧠 Core Bot Identity & Information
   SESSION_ID: process.env.SESSION_ID || "XEON-XTECH~JmVgzZaI#w5a_4Onji_oH_7d9reLJm6TS6ipGB-14PiePLTitZKY",
-  PREFIX: process.env.PREFIX || '.',
+  PREFIX: process.env.PREFIX || '@',
   BOT_NAME: process.env.BOT_NAME || "𝗦𝗤𝗨𝗜𝗗 𝗚𝗔𝗠𝗘",
   BOT: process.env.BOT || "hello 👋", 
   NEW_CMD: process.env.NEW_CMD || "ᴀᴅᴅᴠᴀʀ\n│ sᴜᴅᴏ\n| bright",
